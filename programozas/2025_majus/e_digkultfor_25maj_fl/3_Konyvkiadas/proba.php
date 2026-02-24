@@ -1,0 +1,2 @@
+$tomb = array();
+$tomb["asztal"] = 
