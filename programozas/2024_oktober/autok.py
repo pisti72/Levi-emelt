@@ -55,7 +55,7 @@ print("6. feladat")
 
 km = 0
 ido = -1
-keresett = input("Kérem, adja meg a rendszámot: ")
+keresett = "asd"#input("Kérem, adja meg a rendszámot: ")
 for s in jelek:
     if s[RSZÁM] == keresett:
         if ido == -1:
@@ -69,5 +69,21 @@ for s in jelek:
             print(f"{s[ÓRA]}:{s[PERC]} {round(km, 1)} km")
 if ido == -1:
     print("Nincs")
+
+#7. feladat
+print("7. feladat")
+
+file = open("ido.txt", "wt")
+adat = {}
+for s in jelek:
+    if s[RSZÁM] in adat:
+        adat[s[RSZÁM]][2] = s[ÓRA]
+        adat[s[RSZÁM]][3] = s[PERC]
+    else:
+        adat[s[RSZÁM]] = [s[ÓRA],s[PERC],"",""]
+for key, value in adat.items():
+    print(key, value[0], value[1], value[2], value[3], file=file)
+file.close()
+
 
 
